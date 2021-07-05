@@ -1,0 +1,43 @@
+{% extends "marquette/layout.html" %}
+
+{% block body %}
+    <div id="posts">
+        {% block sdkbody%}
+        {% endblock %}    
+    </div>
+    <div id="links">
+        <ul>
+            <li>
+                <h2>Nhận hồ sơ</h2>
+                <ul>
+                    <li><a href="{% url 'docinput' %}">Nhập số đăng ký mới</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>Tra cứu hồ sơ</h2>
+                <ul>
+                    <li><a href="{% url 'docfind' action='view' %}">Tra cứu thông tin</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>Sửa đổi hồ sơ</h2>
+                <ul>
+                    <li><a href="{% url 'docfind' action='update' %}">Sửa nội dung</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>Số đăng ký hết hạn</h2>
+                <ul>
+                    <li><a href="{% url 'docexpired' %}">Tra cứu hồ sơ hết hạn</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>Tạo số tự đăng ký</h2>
+                <ul>
+                    <li><a href="{% url 'doctcb' %}">Danh sách số tự đăng ký</a></li>
+                    <li><a href="{% url 'tucbcreate' %}">Tạo số tự đăng ký mới</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

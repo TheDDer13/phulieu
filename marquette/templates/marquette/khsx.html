@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Phụ liệu</title> 
+    </head>
+    <body>
+        <div>
+            <table style="width:100%; border: 2px solid black; border-collapse:collapse">
+                <tr style="border: 2px solid black">
+                    <th style="border: 1px solid black">Mã sản phẩm</th>
+                    <th style="border: 1px solid black">Tên sản phẩm</th>
+                    <th style="border: 1px solid black">Quy cách</th>
+                    <th style="border: 1px solid black">Loại phụ liệu</th>
+                    <th style="border: 1px solid black">Mã marquette</th>
+                    <th style="border: 1px solid black">Nội dung thay đổi</th>
+                    <th style="border: 1px solid black">Hướng xử lý</th>
+                    <th style="border: 1px solid black">Số lượng tồn</th>
+                    <th style="border: 1px solid black">Chốt sử dụng</th>
+                    <th style="border: 1px solid black">Tình trạng</th>
+                    <th style="border: 1px solid black">Ghi chú</th>
+                </tr>
+                {% regroup list by sanpham.mabfo as grouped %}
+                {% for group in grouped %}
+                    {% for i in group.list %}
+                    <tr style="border: 2px solid black">
+                        {% ifchanged %}
+                        <td rowspan="{{ group.list|length }}" style="border: 1px solid black">{{ i.sanpham.mabfo }}</td>
+                        {% endifchanged %}
+                        {% ifchanged %}
+                        <td rowspan="{{ group.list|length }}" style="border: 1px solid black">{{ i.sanpham.sodangky.tensanpham }}</td>
+                        {% endifchanged %}
+                        {% ifchanged %}
+                        <td rowspan="{{ group.list|length }}" style="border: 1px solid black">{{ i.sanpham.quycach }}</td>
+                        {% endifchanged %}
+                        <td style="border: 1px solid black">{{ i.dauma.loai }}</td>
+                        <td style="border: 1px solid black">{{ i.dauma.dauma }}</td>
+                        <td style="border: 1px solid black">{{ i.thaydoi.thongbao.link }}</td>
+                        <td style="border: 1px solid black">{{ i.huongxuly.xuly }}</td>
+                        <td style="border: 1px solid black">{{ i.dauma.soluong }}</td>
+                        <td style="border: 1px solid black">{{ i.chotsudung }}</td>
+                        <td style="border: 1px solid black">{{ i.tinhtrang }}</td>
+                        <td style="border: 1px solid black">{{ i.ghichu }}</td>
+                    </tr>
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+

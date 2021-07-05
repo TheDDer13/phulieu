@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Phụ liệu</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'marquette/tongketstyle.css' %}">    
+    </head>
+    <body>
+        <form id="addform" method="post" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Thêm sản phẩm" name="addsanpham">
+        </form>
+        <a href="{% url 'mainindex' %}" class="button">Trang chủ</a>
+        <a href="{% url 'tongketclear' %}" class="button">Xóa bảng</a>
+        <a href="{% url 'mailkhsx' %}" class="button">Gửi mail</a>
+        <br>
+        <br>
+        <p><strong>Note: Nếu sản phẩm có nhiều mã ở trạng thái "Mã mới" tức là các mã đó đã ban hành nhưng chưa kịp dùng</strong></p>
+        <table style="width:100%">
+            <tr>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Quy cách</th>
+                <th>Loại phụ liệu</th>
+                <th>Mã marquette</th>
+                <th>Trạng thái</th>
+                <th>Nội dung thay đổi</th>
+                <th>Hướng xử lý</th>
+                <th>Thời hạn</th>
+                <th>Số lượng tồn</th>
+                <th>Chốt sử dụng</th>
+                <th>Tình trạng</th>
+                <th>Ghi chú</th>
+            </tr>
+            {% regroup listtk by sanpham.mabfo as grouped %}
+            {% for group in grouped %}
+                {% for i in group.list %}
+                    <tr>
+                        {% ifchanged %}
+                            <td rowspan="{{ group.list|length }}">{{ i.sanpham.mabfo }}</td>
+                        {% endifchanged %}
+                        {% ifchanged %}
+                            <td rowspan="{{ group.list|length }}">{{ i.sanpham.sodangky.tensanpham }}</td>
+                        {% endifchanged %}
+                        {% ifchanged %}
+                            <td rowspan="{{ group.list|length }}">{{ i.sanpham.quycach }}</td>
+                        {% endifchanged %}
+                            <td>{{ i.dauma.loai }}</td>
+                            <td>{{ i.dauma.dauma }}</td>
+                            <td>{{ i.trangthai }}</td>
+                            <td><a href={{i.thaydoi.thongbao.link}}>X</a></td>
+                            <td>{{ i.huongxuly.xuly }}</td>
+                            <td>{{ i.huongxuly.thoihan }}</td>
+
+                            {% if i.dauma.soluong == None %}
+                                <td>
+                                    <form method="GET" style="border:none; margin:0px; padding:0px; box-shadow:none; background: none;"
+                                    action="{% url 'stocktkupdate' pk=i.dauma.pk ma=i.sanpham.mabfo %}">
+                                        <input type="number" name="stock" style="width:30%; background: 0px;">
+                                        <input type="submit" value="Nhập">
+                                    </form>
+                                </td>
+                            {% else %}
+                                <td><a href="{% url 'stocktkupdate' pk=i.dauma.pk ma=i.sanpham.mabfo %}">{{ i.dauma.soluong }}</a></td>
+                            {% endif %}
+
+                            {% if i.chotsudung == None %}
+                                <td><a href="{% url 'tkupdate' i.pk %}">Nhập</a></td>
+                            {% else %}
+                                <td><a href="{% url 'tkupdate' i.pk %}">{{ i.chotsudung }}</a></td>
+                            {% endif %}
+                            {% if i.tinhtrang == None %}
+                                <td><a href="{% url 'tkupdate' i.pk %}">Nhập</a></td>
+                            {% else %}
+                                <td><a href="{% url 'tkupdate' i.pk %}">{{ i.tinhtrang }}</a></td>
+                            {% endif %}
+                            {% if i.ghichu == None %}
+                                <td><a href="{% url 'tkupdate' i.pk %}">Nhập</a></td>
+                            {% else %}
+                                <td><a href="{% url 'tkupdate' i.pk %}">{{ i.ghichu }}</a></td>
+                            {% endif %}
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+    </body>
+    <footer>
+        <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+        {{ form.media }}
+        <script src="{% static 'marquette/autocomplete.js' %}"></script>
+    </footer>
+</html>   

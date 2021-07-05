@@ -1,0 +1,15 @@
+{% extends "marquette/sanpham/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block spbody %}
+    <div class="post">
+        <h1>Nhập sản phẩm mới - Tạo phụ liệu</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Nhập">
+            </form>
+        <p><a href="{% url 'spaddpl' ma=sp.pk %}">Sản phẩm sử dụng phụ liệu có sẵn?</a></p>
+        <p><a href="{% url 'plview' ma=sp.pk %}">Đã nhập hết phụ liệu?</a></p>
+    </div>
+{% endblock %}

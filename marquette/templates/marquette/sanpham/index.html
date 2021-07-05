@@ -1,0 +1,23 @@
+{% extends "marquette/sanpham/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block spbody %}
+    <div class="post">
+        <h2 class="title">Hướng dẫn sử dụng</h2>
+        <div class="story">
+        <p><strong>Tài liệu</strong></p>
+        </div>
+    </div>
+    <div class="post">
+        <h2 class="title">Trích xuất dữ liệu sản phẩm</h2>
+        <div class="story">
+        <p><strong><a href="{% url 'exportsanpham' %}">Tải xuống dữ liệu</a></strong></p>
+        </div>
+    </div>
+    <div class="post">
+        <h2 class="title">Trích xuất dữ liệu sản phẩm chờ mã BFO</h2>
+        <div class="story">
+        <p><strong><a href="{% url 'exportwaiting' %}">Tải xuống dữ liệu</a></strong></p>
+        </div>
+    </div>
+{% endblock %}

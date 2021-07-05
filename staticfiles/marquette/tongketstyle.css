@@ -1,0 +1,355 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	font: normal small Arial, Helvetica, sans-serif;
+	line-height: 1.8em;
+	color: #3789c0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	color: #168289;
+}
+
+h2 {
+	padding-left: 20px;
+	background: url(image/img07.gif) no-repeat left center;
+	font-size: 22px;
+}
+
+h3 {
+	margin-bottom: 1em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: .9em;
+	font-weight: bold;
+}
+
+p, blockquote, ul, ol {
+	margin-top: 0;
+}
+
+blockquote {
+	padding: 0 0 0 40px;
+	background: url(image/img11.gif) no-repeat;
+	font: italic small Georgia, "Times New Roman", Times, serif;
+	line-height: 1.6em;
+}
+
+a {
+	background: url(image/img03.gif) repeat-x left bottom;
+	text-decoration: none;
+	color: #168289;
+}
+
+a:hover {
+	background: none;
+	text-decoration: underline;
+}
+
+/* Wrapper */
+
+#wrapper {
+	background: #FFFFFF url(image/img04.gif) repeat-x left bottom;
+}
+
+/* Menu */
+
+#menu {
+	width: 750px;
+	height: 60px;
+	margin: 0 auto;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu li {
+	display: block;
+	float: left;
+	width: 148px;
+	height: 60px;
+	padding: 0 0 0 2px;
+	background: url(image/img02.gif) no-repeat;
+}
+
+#menu a {
+	display: block;
+	width: 108px;
+	height: 36px;
+	padding: 20px 20px 0 20px;
+	background: none;
+	letter-spacing: -1px;
+	font: normal 1.6em Georgia, "Times New Roman", Times, serif;
+	color: #E1E9E2;
+}
+
+#menu a:hover {
+	border-bottom: 4px solid #2A7C80;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#menu .active a {
+	background: #E1E9E2;
+	border-bottom: 4px solid #E1E9E2;
+	text-decoration: none;
+	color: #449895;
+}
+
+/* Header */
+
+#header {
+	width: 754px;
+	height: 247px;
+	margin: 0 auto;
+	padding: 13px 0 0 0;
+}
+
+#header h1 {
+	float: left;
+	width: 104px;
+	height: 110px;
+	padding: 104px 100px 0 20px;
+	background: url(image/img05.jpg) no-repeat;
+	text-align: center;
+	line-height: 52px;
+	font-size: 40px;
+}
+
+#header h2 {
+	float: right;
+	width: 494px;
+	height: 34px;
+	padding: 180px 20px 0 0;
+	background: url(image/img06.jpg) no-repeat;
+	text-transform: lowercase;
+	text-align: right;
+	letter-spacing: -1px;
+	font-size: 22px;
+	color: #FFFFFF;
+}
+
+/* Content */
+
+#content {
+	width: 750px;
+	margin: 0 auto;
+}
+
+/* Posts */
+
+#posts {
+	float: right;
+	width: 510px;
+}
+
+#posts .post {
+	padding-bottom: 30px;
+}
+
+#posts .story {
+	padding: 15px 20px 0 20px;
+	background: url(image/img10.gif) repeat-x
+}
+
+#posts .meta {
+	padding: 5px 0 0 20px;
+	background: url(image/img03.gif) repeat-x;
+}
+
+#posts .meta p {
+	margin: 0;
+	line-height: normal;
+	font-size: smaller;
+}
+
+#posts ul {
+	list-style: url(image/img12.gif);
+}
+
+/* Links */
+
+#links {
+	float: left;
+	width: 220px;
+}
+
+#links ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#links li ul {
+	padding: 15px 20px 30px 20px;
+	background: url(image/img10.gif) repeat-x
+}
+
+#links li li {
+	padding: 3px 0;
+	background: url(image/img03.gif) repeat-x left bottom;
+}
+
+#links li a {
+	background: none;
+}
+
+#links li i {
+	font-size: smaller;
+}
+
+/* Footer */
+
+#footer {
+	padding: 40px 0 60px 0;
+	background: url(image/img08.gif) repeat-x;
+}
+
+#footer p {
+	width: 750px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #76C0CB;
+}
+
+#footer a {
+	background: none;
+	font-weight: bold;
+	color: #76C0CB;
+}
+
+#legal {
+	margin: 0 auto;
+	text-align: right;
+	font-size: 12px;
+}
+
+#brand {
+	margin: -35px auto 0 auto;
+	padding: 10px 0 0 35px;
+	background: url(image/img09.gif) no-repeat left top;
+	letter-spacing: -1px;
+	font-size: 24px;
+}
+
+/* Style for form */
+#addform {
+	max-width: 450px;
+	background: #FAFAFA;
+	padding: 30px;
+	margin: 50px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+	border-radius: 10px;
+	border: 6px solid #168289;
+}
+#addform  ul{
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+#addform  ul li{
+	display: block;
+	margin-bottom: 10px;
+	min-height: 35px;
+}
+#addform  ul li  .field-style{
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	padding: 8px;
+	outline: none;
+	border: 1px solid #80CFF0;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+
+}
+#addform  ul li  .field-style:focus{
+	box-shadow: 0 0 5px #80CFF0;
+	border:1px solid #80CFF0;
+}
+#addform  ul li .field-split{
+	width: 49%;
+}
+#addform  ul li .field-full{
+	width: 100%;
+}
+#addform  ul li input.align-left{
+	float:left;
+}
+#addform  ul li input.align-right{
+	float:right;
+}
+#addform  ul li textarea{
+	width: 100%;
+	height: 100px;
+}
+#addform  ul li input[type="button"], 
+#addform  ul li input[type="submit"] {
+	-moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+	box-shadow: inset 0px 1px 0px 0px #3985B1;
+	background-color: #216288;
+	border: 1px solid #17445E;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	padding: 8px 18px;
+	text-decoration: none;
+	font: 12px Arial, Helvetica, sans-serif;
+}
+#addform  ul li input[type="button"]:hover, 
+#addform  ul li input[type="submit"]:hover {
+	background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+	background-color: #28739E;
+}
+
+/* Style for table */
+table {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+  } 
+table td, table th {
+	border: 1px solid #ddd;
+	padding: 8px;
+  } 
+table tr:nth-child(even){background-color: #f2f2f2;}
+  
+table tr:hover {background-color: #ddd;}
+  
+table th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #1c86b0;
+	color: white;
+  }
+
+/* Style for button */
+.button {
+    background-color:#1c86b0;
+    padding: 8px 20px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+    color: #FFFFFF;
+}
+.button:hover {
+    background-color:#0f6283;
+    color: #FFFFFF;
+}

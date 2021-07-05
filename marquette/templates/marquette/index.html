@@ -1,0 +1,28 @@
+{% extends "marquette/layout.html" %}
+
+{% block body %}
+    <div id="posts">
+        <div class="post">
+            <h2 class="title">Mô tả</h2>
+            <div class="story">
+            <p>Website quản lý phụ liệu cho các phòng ban Quản lý Chất lượng, Nghiên cứu Phát triển sản phẩm, Kế hoạch và Kho của Công ty Cổ phần CPC1 Hà Nội</p>
+            </div>
+            <div class="meta">
+                <p>Trang web sử dụng template từ <strong><a href="https://www.free-css.com/free-css-templates/page9/the-green-house">link</a></strong> này</p>
+                <p class="date">Tạo ngày 28/6/2021 bởi Phương Hà</p>
+            </div>
+        </div>
+    </div>
+    <div id="links">
+        <ul>
+            <li>
+                <h2>Kế hoạch sản xuất hàng tuần</h2>
+                <ul>
+                    <li><a href="{% url 'tongket' %}">Nhập sản phẩm</a></li>
+                    <li><a href="{% url 'tongket' %}">Nhập tồn phụ liệu</a></li>
+                    <li><a href="{% url 'tongket' %}">Chốt phụ liệu sử dụng</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

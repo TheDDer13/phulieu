@@ -1,0 +1,38 @@
+{% extends "marquette/layout.html" %}
+
+{% block body %}
+    <div id="posts">
+        {% block plbody %}
+        {% endblock %}
+    </div>
+    <div id="links">
+        <ul>
+            <li>
+                <h2>Ban hành marquette mới</h2>
+                <ul>
+                    <li><a href="{% url 'plcreate' %}">Tạo phụ liệu lần đầu (cho sản phẩm đang sản xuất)</a></li>
+                    <li><a href="{% url 'plinput' %}">Ban hành marquette lần tiếp theo</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>Tồn kho phụ liệu</h2>
+                <ul>
+                    <li><a href="{% url 'spfind' action='stock' %}">Tra cứu tồn kho</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>Hiệu lực marquette</h2>
+                <ul>
+                    <li><a href="{% url 'spfind' action='recall' %}">Khôi phục hiệu lực marquette</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>Nhà cung cấp</h2>
+                <ul>
+                    <li><a href="{% url 'ncccreate' %}">Tạo nhà cung cấp mới</a></li>
+                    <li><a href="{% url 'marquetteadd' %}">Bổ sung nhà cung cấp cho phụ liệu</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

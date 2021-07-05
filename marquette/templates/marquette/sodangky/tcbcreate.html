@@ -1,0 +1,13 @@
+{% extends "marquette/sodangky/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block sdkbody %}
+    <div class="post">
+        <h1>Tạo số tự công bố mới</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Nhập">
+            </form>
+    </div>
+{% endblock %}

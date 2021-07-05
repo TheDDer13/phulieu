@@ -1,0 +1,22 @@
+{% extends "marquette/thaydoi/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block tdbody %}
+    <div class="post">
+        <h1>Thông báo thay đổi này áp dụng cho những phụ liệu nào?</h1>
+            <p>Đã áp dụng cho các phụ liệu sau:
+                <ul>
+                    {% for pl in pllist%}
+                    <li>{{ pl.loai }}</li>
+                    {% endfor %}
+                </ul>
+            </p>
+            <form method="post">
+                {% csrf_token %}
+                {{ spform.as_p }}
+                {{ form.as_p }}
+                <input type="submit" value="Chọn">
+            </form>
+            <p><a href="{% url 'sosanhview' pk=pk %}">Đã nhập xong các thay đổi phụ liệu?</a></p>
+    </div>
+{% endblock %}

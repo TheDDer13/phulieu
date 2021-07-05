@@ -1,0 +1,33 @@
+{% extends "marquette/sodangky/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block sdkbody %}
+    <div class="post">
+        <h2 class="title">Về số đăng ký</h2>
+        <div class="story">
+            <ul>
+                <li>Số đăng ký: {{ object.sodangky }}</li>
+                <li>Ngày cấp: {{ object.ngaycap }}</li>
+                <li>Ngày hết hạn: {{ object.ngayhethan }}</li>
+                <li>Số tự công bố: {{ object.sotucongbo }}</li>
+                <li>Tiêu chuẩn: {{ object.tieuchuan }}</li>
+                <li>Nhà đăng ký: {{ object.nhadk }}</li>
+                <li>Nhà phân phối: {{ object.nhapp }}</li>
+                <li>Phân loại: {{ object.phanloai }}</li>
+            </ul>
+        </div>
+    </div>  
+    <div class="post">
+        <h2 class="title">Về sản phẩm</h2>
+        <div class="story">
+            <ul>
+                <li>Tên sản phẩm: {{ object.tensanpham }}</li>
+                <li>Hạn sử dụng: {{ object.hansanpham }}</li>
+                <li>Hoạt chất: {{ object.hoatchat }}</li>
+                <li>Hàm lượng: {{ object.hamluong }}</li>
+                <li>Dạng bào chế: {{ object.dangbaoche }}</li>
+                <li>Quy cách: {{ object.quycach }}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

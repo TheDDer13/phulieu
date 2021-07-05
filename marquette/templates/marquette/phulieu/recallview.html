@@ -1,0 +1,23 @@
+{% extends "marquette/phulieu/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block plbody %} 
+    <div class="post">
+        <h1>Danh sách phụ liệu đã hết hiệu lực của sản phẩm {{ sp.sodangky.tensanpham }}-{{ sp.quycach }}</h1>
+        <br>
+        <table>
+            <tr>
+                <th>Loại phụ liệu</th>
+                <th>Đầu mã</th>
+                <th>Khôi phục hiệu lực</th>
+            </tr>
+                {% for i in list %}
+                <tr>
+                    <td>{{ i.pl.loai }}</td>
+                    <td>{{ i.pl.dauma }}</td>
+                    <td><a href="{% url 'recall' pl=i.pl.pk sp=sp.mabfo %}">Khôi phục</a></td>
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
+{% endblock %}

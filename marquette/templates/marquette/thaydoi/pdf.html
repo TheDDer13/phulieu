@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Phụ liệu</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'marquette/pdf.css' %}">  
+    </head>
+    <body>
+        <div id="header">
+            <div style="float: left; width: 10%;">
+                <img src="{% static 'marquette/image/logo-header.png' %}" alt="logo" style="float: left; height: 60px; position: relative;"/>
+            </div>
+            <div style="float: left; font-size: 10pt; text-align: center; width: 45%; line-height: 3pt;">
+                <p>CÔNG TY CỔ PHẦN</p>
+                <p>DƯỢC PHẨM CPC1 HÀ NỘI</p>
+                <p><b>PHÒNG NGHIÊN CỨU PHÁT TRIỂN</b></p>
+            </div>
+            <div style="float: right; font-size: 10pt; text-align: center; width: 45%; line-height: 3pt;">
+                <p>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
+                <p><b>Độc lập - Tự do - Hạnh phúc</b></p>
+                <p><i>Hà Nội, ngày {{ today|date:"d"}} tháng {{ today|date:"m"}} năm 20{{ today|date:"y"}}</i></p>
+            </div>
+        </div>
+        <br style="line-height:80px;">
+        <div id="thongbao">
+            <div style="text-align: center;">
+                <h4><b style="text-decoration: underline;">THÔNG BÁO</b></h4>
+                <p><b>V/v thay đổi nội dung trên BAO BÌ SẢN PHẨM</b></p>
+            </div>
+            <div style="text-indent: 20pt;">
+                <p><i>Kính gửi:</i> Các phòng ban - Công ty cổ phần Dược phẩm CPC1 Hà Nội</p>
+                <p><i>Thời gian áp dụng từ ngày:</i> {{ tbao.ngayapdung|date:"SHORT_DATE_FORMAT" }}</p>
+                <p>Đề nghị Phòng Quản Lý Chất Lượng xử lý tiếp</p>
+            </div>
+        </div>
+        <hr>
+        <div id="thongtinchung">
+            <h4>THÔNG TIN CHUNG CỦA SẢN PHẨM</h4>
+            <table style="width: 100%;">
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Hàm lượng</th>
+                    <th>Quy cách đóng gói</th>
+                    <th>Số đăng ký</th>
+                </tr>
+                <tr>
+                    <td>{{ tbao.sodangky.tensanpham }}</td>
+                    <td>{{ tbao.sodangky.hamluong }}</td>
+                    <td>
+                        {% for i in tdoi %}
+                        {{ i.sanpham__quycach }}<br>
+                        {% endfor %}
+                    </td>
+                    <td>{{ tbao.sodangky.sodangky }}</td>
+                </tr>
+            </table>
+            <br>
+            <div>
+                <table style="float: left; width: 45%;">
+                    <tr>
+                        <th rowspan="2">Loại thay đổi</th>
+                        <td>Bắt buộc</td>
+                        {% if tbao.loai == 'BB' %}
+                        <td>X</td>
+                        {% elif tbao.loai == 'THT' %}
+                        <td> </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Tự hoàn thiện</td>
+                        {% if tbao.loai == 'THT' %}
+                        <td>X</td>
+                        {% elif tbao.loai == 'BB' %}
+                        <td> </td>
+                        {% endif %}
+                    </tr>
+                </table>
+                <table style="float: right; width: 45%;">
+                    <tr>
+                        <th rowspan="2">Mức độ ưu tiên</th>
+                        <td>Gấp</td>
+                        {% if tbao.uutien == 'G' %}
+                        <td>X</td>
+                        {% elif tbao.uutien == 'T' %}
+                        <td> </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Tự hoàn thiện</td>
+                        {% if tbao.uutien == 'T' %}
+                        <td>X</td>
+                        {% elif tbao.uutien == 'G' %}
+                        <td> </td>
+                        {% endif %}
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <div id="lydo">
+            <h4>LÝ DO THAY ĐỔI</h4>
+            <table style="float: center; width: 80%;">
+                <tr>
+                    <td>Công ty cổ phần dược phẩm CPC1 Hà Nội</td>
+                    {% if tbao.lydo == 'CPC1' %}
+                    <td>X</td>
+                    {% elif tbao.lydo == 'NPP' %}
+                    <td> </td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Nhà phân phối</td>
+                    {% if tbao.lydo == 'NPP' %}
+                    <td>X</td>
+                    {% elif tbao.lydo == 'CPC1' %}
+                    <td> </td>
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div id="noidung">
+            <h4>NỘI DUNG THAY ĐỔI</h4>
+            <table style="float: center;">
+                <tr>
+                    <th>Loại bao bì</th>
+                    <th>Nội dung so sánh</th>
+                    <th>Nội dung nhãn ban hành lần trước</th>
+                    <th>Nội dung nhãn ban hành lần hiện tại</th>
+                </tr>
+                {% regroup ssanh by pk as grouped %}
+                {% for group in grouped %}
+                    {% for ss in group.list %}
+                            <tr>
+                                {% ifchanged ss.pk %}
+                                <td rowspan="{{ group.list|length }}">{{ ss.loai }}</td>
+                                {% endifchanged %}
+                                <td>{{ ss.noidung }}</td>
+                                <td>{{ ss.matruoc }}</td>
+                                <td>{{ ss.masau }}</td>
+                            </tr>
+                            {% for i in ss.sstext|filterss:ss %}
+                            <tr>
+                                <td>{{ ss.loai }}</td>
+                                <td>{{ i.noidung }}</td>
+                                <td>{{ i.chutruoc }}</td>
+                                <td>{{ i.chusau }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% for j in ss.ssimage|filterss:ss %}
+                            <tr>
+                                <td>{{ ss.loai }}</td>
+                                <td>{{ j.noidung }}</td>
+                                <td> <div style="max-width: 100%;">
+                                    <img src="{{ j.anhtruoc.url }}" alt="Ảnh trước"/>
+                                </div></td>
+                                <td> <div style="max-width: 100%;">
+                                    <img src="{{ j.anhsau.url }}" alt="Ảnh sau"/>
+                                </div></td>
+                            </tr>
+                            {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+        <hr>
+        <div id="mahangdat">
+            <h4>MÃ HÀNG ĐÃ ĐẶT</h4>
+            <table style="float: center; width: 80%;">
+                <tr>
+                    <th>Mã marquette</th>
+                    <th>Số lượng tồn</th>
+                    <th>Số lượng đặt</th>
+                </tr>
+                {% for ma in madat %}
+                <tr>
+                    <td>{{ ma.marquettedat.marquette }}</td>
+                    <td>{{ ma.tonkho }}</td>
+                    <td>{{ ma.dathang }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <hr>
+        <div id="huongxuly">
+            <h4>HƯỚNG XỬ LÝ TỒN KHO</h4>
+            <table style="width:80%">
+                <tr>
+                    <td>Hộp</td>
+                    <td>Hủy    <span style='font-size:150%;'>&#9744;</span></td>
+                    <td>Dùng tồn    <span style='font-size:150%;'>&#9744;</span></td>
+                </tr>
+                <tr>
+                    <td>Toa</td>
+                    <td>Hủy    <span style='font-size:150%;'>&#9744;</span></td>
+                    <td>Dùng tồn    <span style='font-size:150%;'>&#9744;</span></td>
+                </tr>
+                <tr>
+                    <td>Tem</td>
+                    <td>Hủy    <span style='font-size:150%;'>&#9744;</span></td>
+                    <td>Dùng tồn    <span style='font-size:150%;'>&#9744;</span></td>
+                </tr>
+                <tr>
+                    <td>Khác (ghi cụ thể)</td>
+                    <td>Hủy    <span style='font-size:150%;'>&#9744;</span></td>
+                    <td>Dùng tồn    <span style='font-size:150%;'>&#9744;</span></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+        <div style="float: left; font-size: 11pt; width: 50%;">
+            <p style="text-align: center;">Xin chân thành cảm ơn</p>
+            <p><b><i>Nơi nhận:</i></b></p>
+            <ul><b><i>
+                <li>Phòng kế hoạch</li>
+                <li>Phòng Quản lý chất lượng</li>
+                <li>Kho phụ liệu</li>
+                <li>Lưu Nghiên cứu phát triển</li>
+            </i></b></ul>
+        </div>
+        <div style="float: right; font-size: 11pt; text-align: center; width: 50%; line-height: 3pt;">
+            <p><b>PHÒNG NGHIÊN CỨU PHÁT TRIỂN</b></p>
+        </div>
+    </body>
+</html>

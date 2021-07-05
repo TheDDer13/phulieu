@@ -1,0 +1,31 @@
+{% extends "marquette/thaydoi/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block tdbody %} 
+    <div class="post">
+        <h1>Danh sách phụ liệu được áp dụng thay đổi</h1>
+        <br>
+        <p>Thay đổi sản phẩm {{ thongbao.sodangky.tensanpham }}</p>
+        <table>
+            <tr>
+                <th>Loại phụ liệu</th>
+                <th>Mã trước</th>
+                <th>Mã sau</th>
+                <th>Chỉnh sửa mã</th>
+                <th>Nhập chi tiết</th>
+                <th>Nhập ảnh</th>
+            </tr>
+                {% for i in list %}
+                <tr>
+                    <td>{{ i.loai }}</td>
+                    <td>{{ i.matruoc }}</td>
+                    <td>{{ i.masau }}</td>
+                    <td><a href="{% url 'sosanhupdate' tb=thongbao.pk pk=i.pk %}" target="_blank">X</a></td>
+                    <td><a href="{% url 'sstextcreate' pk=i.pk %}" target="_blank">X</a></td>
+                    <td><a href="{% url 'ssimagecreate' pk=i.pk %}" target="_blank">X</a></td>
+                </tr>
+                {% endfor %}
+        </table>
+        <br>
+    </div>
+{% endblock %}

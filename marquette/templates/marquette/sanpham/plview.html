@@ -1,0 +1,52 @@
+{% extends "marquette/sanpham/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block spbody %}
+    <div class="post">
+        <h1>Sản phẩm {{ sp.sodangky.tensanpham }}-{{ sp.quycach }}</h1>
+        <br>
+        <p>Vị trí lưu hồ sơ: 
+            {% if sp.vitri == None %}
+                <form method="GET" style="border:none; margin:0px; padding:0px; box-shadow:none; background: none;"
+                action="{% url 'vitriupdate' ma=sp.mabfo %}">
+                    <input type="text" name="vitri" style="width:30%; background: 0px;">
+                    <input type="submit" value="Nhập">
+                </form>
+        {% else %}
+            <td><a href="{% url 'vitriupdate' ma=sp.mabfo %}">{{ sp.vitri }}</a></td>
+        {% endif %}
+        </p>
+        <table>
+            <tr>
+                <th>Mã BFO (Fast)</th>
+                <th>Loại phụ liệu</th>
+                <th>Đầu mã</th>
+                <th>Trạng thái hồ sơ</th>
+                <th>List marquette</th>
+            </tr>
+                {% for i in list %}
+                <tr>
+                    <td>{{ i.pl.mabfomoi }}</td>
+                    <td>{{ i.pl.loai }}</td>
+                    <td>{{ i.pl.dauma }}</td>
+                    {% if i.pl.trangthaihoso == None %}
+                        <td>
+                            <form method="GET" style="border:none; margin:0px; padding:0px; box-shadow:none; background: none;"
+                            action="{% url 'sample' pk=i.pl.pk ma=sp.mabfo %}">
+                            <input list="status" name="sample" style="width: 30%;">
+                                <datalist id="status">
+                                    <option value="Bản in">
+                                    <option value="Hoàn thành">
+                                </datalist>
+                            <input type="submit" value="Nhập">
+                            </form>
+                        </td>
+                    {% else %}
+                        <td><a href="{% url 'sample' pk=i.pl.pk ma=sp.mabfo %}">{{ i.pl.trangthaihoso }}</a></td>
+                    {% endif %}
+                    <td><a href="{% url 'marquetteview' pk=i.pl.pk %}" target="_blank">X</a></td>
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
+{% endblock %}

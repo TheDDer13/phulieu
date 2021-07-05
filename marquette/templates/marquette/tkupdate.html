@@ -1,0 +1,10 @@
+{% extends "marquette/layout.html" %}
+
+{% block body %}
+    <h1>Form chốt phụ liệu sử dụng cho kế hoạch sản xuất tuần</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Cập nhật">
+    </form>
+{% endblock %}

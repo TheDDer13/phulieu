@@ -1,0 +1,31 @@
+{% extends "marquette/sanpham/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block spbody %}
+    <div class="post">
+        <h1>Sản phẩm {{ waitsp.sodangky.tensanpham }}-{{ waitsp.quycach }}</h1>
+        <form method="POST" action="{% url 'addbfo' pk=waitsp.pk %}">
+            {% csrf_token %}
+            <label for="ma">Bổ sung mã BFO: </label>
+            <input type="text" name="ma" placeholder="Nhập mã" maxlength="6">
+            <input type="submit" value="Nhập">
+        </form>
+        <p>Vị trí lưu hồ sơ: {{ waitsp.vitri }}</p>
+        <table>
+            <tr>
+                <th>Mã BFO (Fast)</th>
+                <th>Loại phụ liệu</th>
+                <th>Đầu mã</th>
+                <th>List marquette</th>
+            </tr>
+            {% for i in waitsp.phulieu.all %}
+                <tr>
+                    <td>{{ i.mabfomoi }}</td>
+                    <td>{{ i.loai }}</td>
+                    <td>{{ i.dauma }}</td>
+                    <td><a href="{% url 'marquetteview' pk=i.pk %}" target="_blank">X</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

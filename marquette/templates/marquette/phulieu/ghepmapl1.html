@@ -1,0 +1,15 @@
+{% extends "marquette/phulieu/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block plbody %}
+    <div class="post">
+        <h1>Ban hành marquette mới cho phụ liệu</h1>
+        <br>
+        <p>Phụ liệu này dùng cho các sản phẩm nào?</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Chọn">
+        </form>
+    </div>
+{% endblock %}

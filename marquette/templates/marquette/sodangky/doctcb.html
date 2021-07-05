@@ -1,0 +1,23 @@
+{% extends "marquette/sodangky/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block sdkbody %}
+    <div class="post">
+        <h1>Danh mục số tự công bố</h1>
+        <br>
+        <table>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Số đăng ký</th>
+                <th>Số tự công bố</th>
+            </tr>
+            {% for tcb in tcblist %}
+            <tr>
+                <td>{{ tcb.tensanpham }}</td>
+                <td>{{ tcb.sodangky }}</td>
+                <td>{{ tcb.sotucongbo }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

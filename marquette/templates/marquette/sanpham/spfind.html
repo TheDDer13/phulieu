@@ -1,0 +1,13 @@
+{% extends "marquette/sanpham/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block spbody %}
+    <div class="post">
+        <h1>Tra cứu sản phẩm</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Tìm">
+        </form>
+    </div>
+{% endblock %}

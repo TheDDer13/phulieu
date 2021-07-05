@@ -1,0 +1,13 @@
+{% extends "marquette/thaydoi/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block tdbody %}
+    <div class="post">
+        <h1>Cập nhật hướng xử lý cho thay đổi phụ liệu</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Chọn">
+            </form>
+    </div>
+{% endblock %}

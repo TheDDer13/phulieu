@@ -1,0 +1,27 @@
+{% extends "marquette/thaydoi/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block tdbody %}
+<div class="post">
+    <h1>Danh sách thông báo thay đổi</h1>
+    <br>
+    <table>
+        <tr>
+            <th>Số thứ tự</th>
+            <th>Sản phẩm</th>
+            <th>Ngày áp dụng</th>
+            <th>Công văn</th>
+            <th>Nhập mã hàng đặt</th>
+        </tr>
+            {% for i in tblist %}
+            <tr>
+                <td>{{ i.pk }}</td>
+                <td>{{ i.sodangky.tensanpham }}</td>
+                <td>{{ i.ngayapdung|date:"SHORT_DATE_FORMAT" }}</td>
+                <td>{{ i.congvan }}</td>
+                <td><a href="{% url 'marquettedat' pk=i.pk %}">X</a></td>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}

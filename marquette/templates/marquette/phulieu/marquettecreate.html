@@ -1,0 +1,20 @@
+{% extends "marquette/phulieu/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block plbody %}
+    <div class="post">
+        <h1>Ban hành marquette mới cho phụ liệu</h1>
+        <br>
+        <h2>Danh sách nhà cung cấp các lần ban hành trước</h2>
+            <ol>
+                {% for ncc in listncc %}
+                <li>{{ ncc.manhacc__ten }}</li>
+                {% endfor %}
+            </ol>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Nhập">
+            </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "marquette/thaydoi/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block tdbody %} 
+    <div class="post">
+        <h2>Danh sách thay đổi đã hoàn thành của sản phẩm {{ sp.sodangky.tensanpham }}-{{ sp.quycach }}</h2>
+        <br>
+        <table>
+            <tr>
+                <th>Thông báo thay đổi</th>
+                <th>Đầu mã trước</th>
+                <th>Đầu mã sau</th>
+                <th>Lệnh sản xuất</th>
+                <th>Ngày sản xuất</th>
+                <th>Hạn sử dụng</th>
+                <th>Kế hoạch sản xuất</th>
+            </tr>
+                {% for i in list %}
+                <tr>
+                    <td>{{ i.thaydoi.thongbao.link}}</td>
+                    <td>{{ i.thaydoi.pltruoc.dauma }}</td>
+                    <td>{{ i.thaydoi.plsau.dauma }}</td>
+                    <td>{{ i.lenhsx }}</td>
+                    <td>{{ i.ngaysx }}</td>
+                    <td>{{ i.hansd }}</td>
+                    <td>{{ i.khsx }}</td>
+                </tr>
+                {% endfor %}
+        </table>
+        <br>
+    </div>
+{% endblock %}

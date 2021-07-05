@@ -1,0 +1,23 @@
+{% extends "marquette/layout.html" %}
+
+{% block body %}
+    <div id="posts">
+        {% block tdbody %}
+        {% endblock %}   
+    </div>
+    <div id="links">
+        <ul>
+            <li>
+                <h2>Ban hành thay đổi mới</h2>
+                <ul>
+                    <li><a href="{% url 'plinput' %}">Tạo marquette mới</a></li>
+                    <li><a href="{% url 'docfind' action='change' %}">Nhập công văn thay đổi</a></li>
+                    <li><a href="{% url 'tbviewdetail' %}">Chi tiết công văn thay đổi</a></li>
+                    <li><a href="{% url 'tbviewphulieu' %}">Nhập phụ liệu đã đặt</a></li>
+                    <li><a href="{% url 'tbviewdownload' %}">Tải xuống thông báo thay đổi</a></li>
+                    <li><a href="{% url 'tbviewsendmail' %}">Gửi thông báo thay đổi</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "marquette/phulieu/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block plbody %}
+    <div class="post">
+        <h2 class="title">Danh sách marquette dùng cho phụ liệu này:</h2>
+        <div class="story">
+            <ul>
+                {% for marquette in marquettelist %}
+                <li>{{ marquette.marquette }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>  
+{% endblock %}

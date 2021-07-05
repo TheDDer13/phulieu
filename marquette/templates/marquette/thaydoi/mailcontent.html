@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Phụ liệu</title>
+    </head>
+    <body>
+        <p>{{ notice }}</p>
+        <br>
+        <table style="width:100%; text-align: center;border: 1px solid black; border-collapse:collapse">
+            <tr>
+                <th style="border: 1px solid black">Tên sản phẩm</th>
+                <th style="border: 1px solid black">Hàm lượng</th>
+                <th style="border: 1px solid black">Số đăng ký</th>
+                <th style="border: 1px solid black">Hướng xử trí</th>
+                <th style="border: 1px solid black">Nội dung thay đổi</th>
+                <th style="border: 1px solid black">Loại thay đổi</th>
+                <th style="border: 1px solid black">Mức độ</th>
+                <th style="border: 1px solid black">Link</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">{{ tbao.sodangky.tensanpham }}</td>
+                <td style="border: 1px solid black">{{ tbao.sodangky.hamluong }}</td>
+                <td style="border: 1px solid black">{{ tbao.sodangky.sodangky }}</td>
+                <td style="border: 1px solid black">{{ huongxl }}</td>
+                <td style="border: 1px solid black">{{ noidungtd }}</td>
+                {% if tbao.loai == 'BB' %}
+                    <td style="border: 1px solid black">Băt buộc</td>
+                {% elif tbao.loai == 'THT' %}
+                    <td style="border: 1px solid black">Tự hoàn thiện</td>
+                {% endif %}
+                {% if tbao.uutien == 'G' %}
+                    <td style="border: 1px solid black">Gấp</td>
+                {% elif tbao.uutien == 'T' %}
+                    <td style="border: 1px solid black">Thông thường</td>
+                {% endif %}
+                    <td style="border: 1px solid black"><a href={{tbao.link}}>X</a></td>
+            </tr>
+        </table>
+    </body>
+</html>

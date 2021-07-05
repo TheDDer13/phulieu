@@ -1,0 +1,44 @@
+{% extends "marquette/thaydoi/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block tdbody %}
+<div class="post">
+    <h1>Danh sách mã hàng đã đặt:</h1>
+    <br>
+    <table>
+        <tr>
+            <th>Mã marquette</th>
+            <th>Tồn kho thực</th>
+            <th>Số lượng đặt</th>
+        </tr>
+            {% for i in listma %}
+            <tr>
+                <td>{{ i.marquettedat.marquette }}</td>
+                {% if i.tonkho == None %}
+                    <td>
+                        <form method="GET" style="border:none; margin:0px; padding:0px; box-shadow:none; background: none;"
+                        action="{% url 'tonkhoupdate' tb=tb pk=i.pk %}">
+                            <input type="number" name="tonkho" style="width:30%; background: 0px;">
+                            <input type="submit" value="Nhập">
+                        </form>
+                    </td>
+                {% else %}
+                    <td><a href="{% url 'tonkhoupdate' tb=tb pk=i.pk %}">{{ i.tonkho }}</a></td>
+                {% endif %}
+
+                {% if i.dathang == None %}
+                    <td>
+                        <form method="GET" style="border:none; margin:0px; padding:0px; box-shadow:none; background: none;"
+                        action="{% url 'dathangupdate' tb=tb pk=i.pk %}">
+                            <input type="number" name="dathang" style="width:30%; background: 0px;">
+                            <input type="submit" value="Nhập">
+                        </form>
+                    </td>
+                {% else %}
+                    <td><a href="{% url 'dathangupdate' tb=tb pk=i.pk %}">{{ i.dathang }}</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock %}

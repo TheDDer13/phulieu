@@ -1,0 +1,36 @@
+{% extends "marquette/thaydoi/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block tdbody %} 
+    <div class="post">
+        <h2>Danh sách thay đổi chưa hoàn thành của sản phẩm {{ sp.sodangky.tensanpham }}-{{ sp.quycach }}</h2>
+        <br>
+        <table>
+            <tr>
+                <th>Thông báo thay đổi</th>
+                <th>Đầu mã trước</th>
+                <th>Đầu mã sau</th>
+                <th>Hướng xử lý</th>
+                <th>Trạng thái</th>
+            </tr>
+                {% for i in list %}
+                <tr>
+                    <td><a href={{i.thaydoi.thongbao.link}}>X</a></td>
+                    <td>{{ i.thaydoi.pltruoc.dauma }}</td>
+                    <td>{{ i.thaydoi.plsau.dauma }}</td>
+                    {% if i.chotxuly %}
+                        <td><a href="{% url 'solutionupdate' ma=sp.mabfo pk=i.pk %}">{{ i.chotxuly }}</a></td>
+                    {% else %}
+                        <td><a href="{% url 'solutionupdate' ma=sp.mabfo pk=i.pk %}">Nhập</a></td>
+                    {% endif %}
+                    {% if i.trangthai %}
+                        <td><a href="{% url 'statusupdate' ma=sp.mabfo pk=i.pk %}">{{ i.trangthai }}</a></td>
+                    {% else %}
+                        <td><a href="{% url 'solutionupdate' ma=sp.mabfo pk=i.pk %}">Nhập</a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+        </table>
+        <br>
+    </div>
+{% endblock %}

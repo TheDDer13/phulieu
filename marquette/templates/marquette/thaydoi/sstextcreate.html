@@ -1,0 +1,20 @@
+{% extends "marquette/thaydoi/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block tdbody %}
+    <div class="post">
+        <h1>Nhập mô tả thay đổi phụ liệu</h1>
+            <br>
+            <h2>Đã nhập so sánh cho các nội dung:</h2>
+            <ul>
+                {% for nd in ndlist %}
+                <li>{{ nd.noidung }}</li>
+                {% endfor %}
+            </ul>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Nhập">
+            </form>
+    </div>
+{% endblock %}

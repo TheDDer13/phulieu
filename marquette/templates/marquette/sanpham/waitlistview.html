@@ -1,0 +1,25 @@
+{% extends "marquette/sanpham/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block spbody %}
+    <div class="post">
+        <h1>Danh sách đợi ghép mã</h1>
+        <br>
+        <table>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Quy cách</th>
+                <th>Vị trí hồ sơ</th>
+                <th>Chi tiết</th>
+            </tr>
+            {% for i in waitlist %}
+                <tr>
+                    <td>{{ i.sodangky.tensanpham }}</td>
+                    <td>{{ i.quycach }}</td>
+                    <td>{{ i.vitri }}</td>
+                    <td><a href="{% url 'waitview' ma=i.pk %}" target="_blank">X</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "marquette/sodangky/layout.html" %}
+{% include "marquette/layout.html" %}
+
+{% block sdkbody %}
+<div class="post">
+    <h1>Danh sách số đăng ký hết hạn</h1>
+    <br>
+    <table>
+        <tr>
+            <th>Số đăng ký</th>
+            <th>Tên sản phảm</th>
+            <th>Hạn sử dụng</th>
+            <th>Ngày hết hạn</th>
+            <th>Phân loại</th>
+        </tr>
+        {% for expired in expiredlist %}
+        <tr>
+            <td>{{ expired.sodangky }}</td>
+            <td>{{ expired.tensanpham }}</td>
+            <td>{{ expired.hansanpham }}</td>
+            <td>{{ expired.ngayhethan }}</td>
+            <td>{{ expired.phanloai }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
