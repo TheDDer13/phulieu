@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'marquette',
     'dal',
     'dal_select2',
-    'bootstrap_modal_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
