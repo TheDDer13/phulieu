@@ -1,5 +1,6 @@
 
 from django import forms
+from django.db import connection
 from django.template.defaulttags import register
 from django.shortcuts import render
 from django.template.loader import get_template, render_to_string
@@ -807,6 +808,10 @@ def xuatfile(request,pk):
     #response['Content-Disposition'] = 'attachment; filename="TBTD.pdf"'
     return response
 
+from django.core import mail
+
+# Get connection
+connection = mail.get_connection()
 def mailthongbao(request,pk):
     if request.method == "POST":
         thongtin = EmailForm(request.POST,request.FILES)
@@ -827,15 +832,16 @@ def mailthongbao(request,pk):
                         'noidungtd': noidungtd,
                         'link': link,
             })
-            mail = EmailMessage(subject,
+            email = EmailMessage(subject,
                                 message,
                                 #'Thông Báo Thay ĐổI',
                                 'ha.tranphuong22@gmail.com',
                                 ['tranphuongha1234@gmail.com'],
-                                reply_to=['tranphuongha1234@gmail.com'],)
-            mail.attach(attach.name, attach.read(), attach.content_type)
-            mail.content_subtype = "html"
-            mail.send()
+                                headers={'Reply-To': 'tranphuongha1234@gmail.com'},
+                                connection=connection,)
+            email.attach(attach.name, attach.read(), attach.content_type)
+            email.content_subtype = "html"
+            connection.send_messages([email,])
             return HttpResponse('Mail successfully sent')
     return render(request, 'marquette/thaydoi/tbmail.html',{
         "form": EmailForm,
