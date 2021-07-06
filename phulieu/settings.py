@@ -22,11 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-n%_)-^d(xng*z5dgp0w-=l)kau3ht2)hr&h8uw@_isvegdee#8'
+##SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0','cpc1phulieu.herokuapp.com']
 
@@ -83,21 +84,21 @@ WSGI_APPLICATION = 'phulieu.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#         'USER': 'PhuongHa',
-#         'PASSWORD': 'Tabris@22',
-#         'NAME': 'phulieu',
-#     }
-# }
-
-db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES = {
-    'default': db_from_env,
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'USER': 'PhuongHa',
+        'PASSWORD': 'Tabris@22',
+        'NAME': 'phulieu',
+    }
 }
+
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES = {
+#     'default': db_from_env,
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
