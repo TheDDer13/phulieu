@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 #DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0','phulieu.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0','cpc1phulieu.herokuapp.com']
 
 
 # Application definition
