@@ -139,7 +139,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 if DEBUG:
 # location where you will store your static files
-    STATICFILES_DIRS = [os.path.join(BASE_DIR,'marquette/static')]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 else:
 #location where django collect all static files
     STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
