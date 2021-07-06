@@ -139,7 +139,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 if DEBUG:
 # location where you will store your static files
-    STATICFILES_DIRS = [os.path.join(BASE_DIR,'marquette/static')]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 else:
 #location where django collect all static files
     STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
@@ -155,6 +155,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Sending email config
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
