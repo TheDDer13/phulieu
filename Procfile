@@ -1,0 +1,1 @@
+web: gunicorn phulieu.wsgi --log-file -
