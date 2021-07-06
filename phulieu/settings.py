@@ -84,16 +84,16 @@ WSGI_APPLICATION = 'phulieu.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'PhuongHa',
-        'PASSWORD': 'Tabris@22',
-        'NAME': 'phulieu',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         'USER': 'PhuongHa',
+#         'PASSWORD': 'Tabris@22',
+#         'NAME': 'phulieu',
+#     }
+# }
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES = {
