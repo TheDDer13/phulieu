@@ -17,7 +17,7 @@ Trang web được viết bằng:
   * Django 3.2.4
   * mysqlclient 2.0.3 (Kết nối với local MySQL qua MySQL Workbench)  
 * Front-end Development:
-  * HTML/CSS (Dùng template có sẵn tại https://www.free-css.com/free-css-templates/page9/the-green-house)
+  * HTML/CSS: Dùng template có sẵn tại https://www.free-css.com/free-css-templates/page9/the-green-house
   * Bootstrap 4: Đang thử nghiệm để bổ sung modal dialog
   * Jquery 3.6: Đang thử nghiệm để bổ sung modal dialog
 * Libraries:
@@ -33,7 +33,7 @@ Trang web được viết bằng:
   * psycopg2==2.9.1
   * whitenoise==5.2.0
   * Kết nối với local PostgreSQL qua pgAdmin4
-  * Kết nối với Amazon S3 Bucket để lưu trữ file static và media (Cài đặt django-storages và boto3): Chưa làm
+  * Kết nối với Amazon S3 Bucket để lưu trữ file static và media (Cài đặt django-storages và boto3): Đang bổ sung
 
 
 <a name="congnghe"/></a>
@@ -74,6 +74,7 @@ Trang web được viết bằng:
   * Tạo modal form để cải thiện giao diện người dùng
   * Kết nối production environment với Amazon S3 Bucket
   * Thêm cronjob để cảnh báo khi có số đăng ký hết hạn/thay đổi chưa hoàn thành/ban hành marquette mới nhưng chưa gửi thống báo
+  * Phân quyền truy cập cho các phòng ban (Sau khi chốt tính năng)
 * Các lỗi cần được fix:
   * Trong quá trình ban hành marquette nếu bị thoát ra sẽ không quay lại nhập tiếp được
   * Không gửi mail liên tục vào một subject được nếu gửi trong 2 ngày khác nhau
