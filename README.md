@@ -73,7 +73,7 @@ Trang web được viết bằng:
 * Các tính năng đang/dự định được phát triển:
   * Tạo modal form để cải thiện giao diện người dùng
   * Kết nối production environment với Amazon S3 Bucket
-  * Thêm cronjob để cảnh báo khi có số đăng ký hết hạn/thay đổi chưa hoàn thành
+  * Thêm cronjob để cảnh báo khi có số đăng ký hết hạn/thay đổi chưa hoàn thành/ban hành marquette mới nhưng chưa gửi thống báo
 * Các lỗi cần được fix:
   * Trong quá trình ban hành marquette nếu bị thoát ra sẽ không quay lại nhập tiếp được
   * Không gửi mail liên tục vào một subject được nếu gửi trong 2 ngày khác nhau
