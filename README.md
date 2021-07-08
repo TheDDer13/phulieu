@@ -9,7 +9,7 @@ Website quản lý phụ liệu cho các phòng ban Quản lý Chất lượng, 
 * [Tính năng sử dụng](#sudung)
 * [Phát triển](#phattrien)
 
-<a name="kythuat"/>
+<a name="kythuat"/></a>
 ## Kỹ thuật
 Trang web được viết bằng:
 * Back-end Development:
@@ -35,14 +35,15 @@ Trang web được viết bằng:
   * Kết nối với local PostgreSQL qua pgAdmin4
   * Kết nối với Amazon S3 Bucket để lưu trữ file static và media (Cài đặt django-storages và boto3): Chưa làm
 
-<a name="congnghe"/>
+
+<a name="congnghe"/></a>
 ## Tính năng công nghệ
 1. CRUD dữ liệu (Create/Read/Update/Delete)
 2. Xuất dữ liệu dưới dạng file .xls
 3. Xuất file pdf
 4. Gửi mail
 
-<a name="sudung"/>
+<a name="sudung"/></a>
 ## Tính năng sử dụng
 1. Với phòng Nghiên cứu Phát triển:
     *  Nhập/Tra cứu/Sửa thông tin hồ sơ số đăng ký
@@ -67,13 +68,15 @@ Trang web được viết bằng:
     * Nhập/Tra cứu thông tin lô sản xuất đầu tiên khi hoàn thành thay đổi
     * Chốt (Nhập) phụ liệu sử dụng cho kế hoạch sản xuất hàng tuần (Dựa vào 5 thông tin trên)
 
-<a name="phattrien"/>
+<a name="phattrien"/></a>
 ## Phát triển
 * Các tính năng đang/dự định được phát triển:
   * Tạo modal form để cải thiện giao diện người dùng
-  * Gửi mail liên tục vào một subject
   * Kết nối production environment với Amazon S3 Bucket
   * Thêm cronjob để cảnh báo khi có số đăng ký hết hạn/thay đổi chưa hoàn thành
-* Các lỗi có thể gặp
+* Các lỗi cần được fix:
   * Trong quá trình ban hành marquette nếu bị thoát ra sẽ không quay lại nhập tiếp được
+  * Không gửi mail liên tục vào một subject được nếu gửi trong 2 ngày khác nhau
+  * Không rowspan được cho file pdf
+  * Khi autocomplete mã BFO phụ liệu đang bị lặp lại mã nếu có nhiều lần ban hành
 
