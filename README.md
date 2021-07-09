@@ -26,6 +26,7 @@ Trang web được viết bằng:
   * xlwt==1.3.0: Xử lý export dữ liệu tại client site
   * WeasyPrint==52.5: Xử lý xuất file pdf (Cần install GTK+ và cairo đi kèm, chi tiết xem https://weasyprint.readthedocs.io/en/latest/install.html)
   * django-bootstrap-modal-forms==2.2.0: Đang thử nghiệm để bổ sung modal dialog
+  * django-widget-tweak==1.4.8: Đang thử nghiệm để bổ sung modal dialog
 * Deploy Production (Hosted by Heroku):
   * django-heroku==0.3.1
   * gunicorn==20.1.0
@@ -75,6 +76,7 @@ Trang web được viết bằng:
   * Kết nối production environment với Amazon S3 Bucket
   * Thêm cronjob để cảnh báo khi có số đăng ký hết hạn/thay đổi chưa hoàn thành/ban hành marquette mới nhưng chưa gửi thống báo
   * Phân quyền truy cập cho các phòng ban (Sau khi chốt tính năng)
+  * Thêm alert error khi người dùng nhập sai định dạng (Tránh để Server 505)
 * Các lỗi cần được fix:
   * Trong quá trình ban hành marquette nếu bị thoát ra sẽ không quay lại nhập tiếp được
   * Không gửi mail liên tục vào một subject được nếu gửi trong 2 ngày khác nhau
